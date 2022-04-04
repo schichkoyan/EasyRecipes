@@ -12,7 +12,10 @@ namespace EasyRecipes
         public App()
         {
             InitializeComponent();
+
+            IocProvider.Init();
             MainPage = new LoginView();
+            NavigationDispatcher.Instance.Initialize(MainPage.Navigation);
         }
 
         protected override void OnStart()

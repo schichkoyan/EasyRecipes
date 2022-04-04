@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using System.Windows.Input;
-using Xamarin.Forms;
 using EasyRecipes.Models;
-using EasyRecipes.Services;
-using EasyRecipes.Views;
 using EasyRecipes.Interfaces;
 
 namespace EasyRecipes.ViewModels
 {
-    public class RecipesViewModel : BaseViewModel
+    public class RecipesViewModel : LoginViewModel
     {
         private ObservableCollection<Recipe> recipes;
+
+        private Recipe selectedRecipe;
 
         private readonly SpoonacularService _spoonacularService;
 
@@ -26,12 +24,45 @@ namespace EasyRecipes.ViewModels
             }
         }
 
+        public Recipe SelectedRecipe
+        {
+            get => selectedRecipe;
+            set
+            {
+                if (selectedRecipe != value)
+                {
+                    selectedRecipe = value;
+
+                }
+            }
+        }
+
         public RecipesViewModel(SpoonacularService spoonacularService)
         {
-               _spoonacularService = spoonacularService;
+            _spoonacularService = spoonacularService;
 
-                Recipes = new ObservableCollection<Recipe>();
-            
+            Recipes = new ObservableCollection<Recipe>();
+
         }
+
+        public async Task PopulateRecipes()
+        {
+            try
+            {
+                Recipes.Clear();
+
+                var retrievedRecipes = await _spoonacularService.GetRecipes();
+                foreach (var recipe in retrievedRecipes)
+                {
+                    Recipes.Add(recipe);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+
     }
 }

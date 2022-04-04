@@ -8,7 +8,13 @@ namespace ListviewExampleWithMVVM
 {
     public static class DependencyInjectionContainer
     {
-       
+        public static IServiceCollection ConfigureServices(this IServiceCollection services)
+        {
+            services.AddSingleton<SpoonacularService, Spoonacular>();
+
+            return services;
+        }
+
         public static IServiceCollection ConfigureMockServices(this IServiceCollection services)
         {
             //add your mocks.
@@ -18,8 +24,8 @@ namespace ListviewExampleWithMVVM
 
         public static IServiceCollection ConfigureViewModels(this IServiceCollection services)
         {
-            services.AddTransient<LoginViewModel>();
-
+            
+            services.AddTransient<RecipesViewModel>();
 
             return services;
         }

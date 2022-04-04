@@ -4,23 +4,25 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="EasyRecipes.Views.RecipesView">
     <ContentPage.Content>
-       <Grid Padding="20" VerticalOptions="Center">
-           <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*" />
-           </Grid.RowDefinitions>
-
-        <StackLayout Grid.Row="0" VerticalOptions="Center">
-            <Label Text="Recipes"
-                   TextColor="Blue" FontSize="50" HorizontalOptions="Start"/>
-        </StackLayout>
-
-        <StackLayout Grid.Row="1" VerticalOptions="Center">
-            <Entry Placeholder="Recipe Name"/>
-
-        </StackLayout>
-
-
-        </Grid>
+      <CollectionView 
+            x:Name="RecipesCollection"
+            ItemsSource="{Binding Recipes}"
+            SelectionMode="Single"
+            SelectedItem="{Binding SelectedRecipe}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding Title}" FontSize="Medium" />
+                            <Label Text="{Binding ImageURL}" FontSize="Subtitle" />
+                        </StackLayout>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </ContentPage.Content>
 </ContentPage>
+
+
+
+ 

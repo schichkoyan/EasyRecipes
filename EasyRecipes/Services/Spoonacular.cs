@@ -24,15 +24,16 @@ namespace EasyRecipes.Services
 #endif
 			_httpClient.BaseAddress = new Uri("https://api.spoonacular.com/");
 			_httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
-			_httpClient.DefaultRequestHeaders.Add("?apiKey", "ac485b4a04ef4ec380fe12ba1b5748dc");
+            
 
 		}
-		public async Task<IEnumerable<Recipe>> GetRecipes()
+        public async Task<IEnumerable<Recipe>> GetRecipes()
         {
             try
             {
 				var response = await _httpClient.GetAsync("recipes/complexSearch");
-				if (response.IsSuccessStatusCode)
+                _httpClient.DefaultRequestHeaders.Add("api_key", "ac485b4a04ef4ec380fe12ba1b5748dc");
+                if (response.IsSuccessStatusCode)
                 {
 					var responseAsString = await response?.Content?.ReadAsStringAsync();
 					return JsonSerializer.Deserialize<IEnumerable<Recipe>>(responseAsString);

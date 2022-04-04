@@ -13,6 +13,7 @@ namespace EasyRecipes
             ServiceProvider serviceProvider;
 
             serviceProvider = new ServiceCollection()
+            .ConfigureServices()
             .ConfigureViewModels()
             .BuildServiceProvider();
 
