@@ -10,7 +10,7 @@ using EasyRecipes.Models;
 
 namespace EasyRecipes.Services
 {
-    public class Spoonacular : SpoonacularService
+    public class Spoonacular : ISpoonacularService
     {
         private readonly HttpClient _httpClient;
 

@@ -3,6 +3,7 @@
 using EasyRecipes.Interfaces;
 using EasyRecipes.Services;
 using EasyRecipes.ViewModels;
+using EasyRecipes;
 
 namespace ListviewExampleWithMVVM
 {
@@ -10,7 +11,7 @@ namespace ListviewExampleWithMVVM
     {
         public static IServiceCollection ConfigureServices(this IServiceCollection services)
         {
-            services.AddSingleton<SpoonacularService, Spoonacular>();
+            services.AddSingleton<IDbService, RecipeDb>();
 
             return services;
         }
@@ -26,6 +27,7 @@ namespace ListviewExampleWithMVVM
         {
             
             services.AddTransient<RecipesViewModel>();
+            services.AddTransient<RecipeDetailsViewModel>();
 
             return services;
         }

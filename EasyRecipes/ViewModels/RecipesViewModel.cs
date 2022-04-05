@@ -1,68 +1,54 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using EasyRecipes.Models;
 using EasyRecipes.Interfaces;
+using EasyRecipes.Models;
+using Xamarin.Forms;
 
 namespace EasyRecipes.ViewModels
 {
-    public class RecipesViewModel : LoginViewModel
+    public class RecipesViewModel : BaseViewModel
     {
-        private ObservableCollection<Recipe> recipes;
+        public Recipe SelectedItem { get; set; }
 
-        private Recipe selectedRecipe;
+        public ObservableCollection<Recipe> ObProducts { get; set; }
 
-        private readonly SpoonacularService _spoonacularService;
+        public Command GoToRecipeDetailsCommand { get; set; }
 
-        public ObservableCollection<Recipe> Recipes
+        private IDbService _recipeService;
+
+
+
+        public RecipesViewModel(IDbService recipeService)
         {
-            get => recipes;
-            set
-            {
-                recipes = value;
-                OnPropertyChanged(nameof(Recipes));
-            }
+            _recipeService = recipeService;
+
+            GoToRecipeDetailsCommand = new Command<Recipe>(NavigateToRecipesDetails);
+
+            GetRecipesData();
         }
 
-        public Recipe SelectedRecipe
+
+        public void GetRecipesData()
         {
-            get => selectedRecipe;
-            set
+            ObProducts = new ObservableCollection<Recipe>();
+
+            var items = _recipeService.GetRecipesData();
+            foreach (var item in items)
             {
-                if (selectedRecipe != value)
-                {
-                    selectedRecipe = value;
-
-                }
-            }
-        }
-
-        public RecipesViewModel(SpoonacularService spoonacularService)
-        {
-            _spoonacularService = spoonacularService;
-
-            Recipes = new ObservableCollection<Recipe>();
-
-        }
-
-        public async Task PopulateRecipes()
-        {
-            try
-            {
-                Recipes.Clear();
-
-                var retrievedRecipes = await _spoonacularService.GetRecipes();
-                foreach (var recipe in retrievedRecipes)
-                {
-                    Recipes.Add(recipe);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
+                ObProducts.Add(item);
             }
         }
 
 
+        private void NavigateToRecipesDetails(Recipe recipeToNavigateTo)
+        {
+            var pageToNavigate = new RecipesDetailsView(recipeToNavigateTo);
+            NavigationDispatcher.Instance.Navigation.PushAsync(pageToNavigate);
+        }
+
+        public override Task Initialise()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

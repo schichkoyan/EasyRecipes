@@ -1,7 +1,7 @@
-namespace EasyRecipes.Interfaces
+﻿namespace EasyRecipes.Interfaces
 {
     public interface IServiceOverridable
     {
-        
+
     }
 }

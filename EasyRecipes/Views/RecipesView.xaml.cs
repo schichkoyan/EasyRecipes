@@ -1,32 +1,38 @@
 ﻿using System;
+using Microsoft.Extensions.DependencyInjection;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 using EasyRecipes.ViewModels;
 using System.Diagnostics;
 
 namespace EasyRecipes.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
 
     public partial class RecipesView : ContentPage
     {
         public RecipesView()
         {
+            
             InitializeComponent();
+            BindingContext = IocProvider.ServiceProvider.GetService<RecipesViewModel>();
+            SubscribeToEvents();
+
+        }
+        private void SubscribeToEvents()
+        {
+            Appearing += RecipesView_Appearing;
         }
 
-        protected override async void OnAppearing()
+        private async void RecipesView_Appearing(object sender, EventArgs e)
         {
-            BindingContext = IocProvider.ServiceProvider.GetService<RecipesViewModel>();
             try
             {
-                await (BindingContext as RecipesViewModel).PopulateRecipes();
+                await (BindingContext as RecipesViewModel).Initialise();
             }
-            catch (Exception e)
+            catch (Exception error)
             {
-                Debug.Fail(e.Message);
+                Debug.Fail(error.Message); //handle gracefully here
             }
-
         }
     }
 }
+

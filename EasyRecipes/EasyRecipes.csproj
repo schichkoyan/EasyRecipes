@@ -21,6 +21,8 @@
     <PackageReference Include="SQLite" Version="3.13.0" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     <PackageReference Include="FirebaseDatabase.net" Version="4.0.7" />
+    <PackageReference Include="NUnit" Version="3.13.3" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="System.Text.Json" />
@@ -35,14 +37,23 @@
     <None Remove="SQLite" />
     <None Remove="sqlite-net-pcl" />
     <None Remove="FirebaseDatabase.net" />
+    <None Remove="NUnit" />
+    <None Remove="NUnit3TestAdapter" />
+    <None Remove="Navigation\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interfaces\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Views\" />
     <Folder Include="Services\" />
+    <Folder Include="Navigation\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="Views\AddRecipe.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\RecipesView.xaml.cs">
+      <DependentUpon>RecipesView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

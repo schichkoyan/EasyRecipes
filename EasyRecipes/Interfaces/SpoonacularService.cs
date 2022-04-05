@@ -1,11 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Collections.Generic;
 using EasyRecipes.Models;
 
 namespace EasyRecipes.Interfaces
 {
-    public interface SpoonacularService
+    public interface ISpoonacularService
     {
         Task<IEnumerable<Recipe>> GetRecipes();
     }

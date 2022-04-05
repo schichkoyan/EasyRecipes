@@ -2,26 +2,39 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="EasyRecipes.Views.RecipesView">
-    <ContentPage.Content>
-      <CollectionView 
-            x:Name="RecipesCollection"
-            ItemsSource="{Binding Recipes}"
-            SelectionMode="Single"
-            SelectedItem="{Binding SelectedRecipe}">
+    x:Class="EasyRecipes.Views.RecipesView"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
+   <Grid Padding="20" VerticalOptions="Center">
+           <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*" />
+           </Grid.RowDefinitions>
+    <StackLayout Grid.Row="0" Margin="20,35,20,20">
+        <Entry x:Name="nameEntry" Text="{Binding RecipeName}"
+               Placeholder="Enter name" />
+        <Entry x:Name="ageEntry" Text="{Binding RecipeLink}"
+               Placeholder="Enter link" />
+        <Button Text="Add to Database"
+                Command="{Binding AddToDatabaseCommand}" />
+        <Button Text="CrashApp"
+                Command="{Binding CrashAppCommand}" />
+        <CollectionView x:Name="collectionView" ItemsSource="{Binding Recipes}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <SwipeView>
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding Title}" FontSize="Medium" />
-                            <Label Text="{Binding ImageURL}" FontSize="Subtitle" />
-                        </StackLayout>
-                    </SwipeView>
+                    <StackLayout>
+                        <Label Text="{Binding Title, Mode=TwoWay}"
+                               FontSize="Medium" />
+                        <Label Text="{Binding Link, Mode=TwoWay}"
+                               TextColor="Silver"
+                               FontSize="Small" />
+                    </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-    </ContentPage.Content>
+    </StackLayout>
+    </Grid>
 </ContentPage>
+
 
 
 
