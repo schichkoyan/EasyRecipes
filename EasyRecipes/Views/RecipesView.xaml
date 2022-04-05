@@ -1,41 +1,29 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ContentPage
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="EasyRecipes.Views.RecipesView"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
-   <Grid Padding="20" VerticalOptions="Center">
-           <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*" />
-           </Grid.RowDefinitions>
-    <StackLayout Grid.Row="0" Margin="20,35,20,20">
-        <Entry x:Name="nameEntry" Text="{Binding RecipeName}"
-               Placeholder="Enter name" />
-        <Entry x:Name="ageEntry" Text="{Binding RecipeLink}"
-               Placeholder="Enter link" />
-        <Button Text="Add to Database"
-                Command="{Binding AddToDatabaseCommand}" />
-        <Button Text="CrashApp"
-                Command="{Binding CrashAppCommand}" />
-        <CollectionView x:Name="collectionView" ItemsSource="{Binding Recipes}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout>
-                        <Label Text="{Binding Title, Mode=TwoWay}"
-                               FontSize="Medium" />
-                        <Label Text="{Binding Link, Mode=TwoWay}"
-                               TextColor="Silver"
-                               FontSize="Small" />
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </StackLayout>
-    </Grid>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:EasyRecipes.ViewModels"
+             x:Class="EasyRecipes.Views.RecipesView">
+
+    <StackLayout HorizontalOptions="Center" VerticalOptions="FillAndExpand" Padding="10">
+
+<ListView x:Name="lstProducts" HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand"
+        SeparatorColor="LightGray" SeparatorVisibility="Default" HasUnevenRows="True"
+        ItemsSource="{Binding ObProducts}" CachingStrategy="RecycleElement"
+        ItemSelected="LstProducts_ItemSelected" SelectedItem="{Binding SelectedProduct,Mode=TwoWay}">
+<ListView.ItemTemplate>
+        <DataTemplate>
+            <ViewCell>
+            <StackLayout Orientation="Horizontal" Padding="5" VerticalOptions="FillAndExpand"
+                    MinimumHeightRequest="100">
+                        <Image Source="{Binding Image}" WidthRequest="70" HeightRequest="70"></Image>
+                        <StackLayout Orientation="Vertical" Padding="2" VerticalOptions="Center" Spacing="2">
+                                <Label Text="{Binding Name}" FontSize="18" TextColor="Black" FontAttributes="Bold"/>
+
+                        </StackLayout>
+             </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+ </StackLayout>
 </ContentPage>
-
-
-
-
- 

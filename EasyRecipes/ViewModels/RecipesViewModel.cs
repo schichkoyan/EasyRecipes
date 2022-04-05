@@ -1,8 +1,9 @@
 ﻿using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 using EasyRecipes.Interfaces;
 using EasyRecipes.Models;
+using EasyRecipes.Views;
 using Xamarin.Forms;
+
 
 namespace EasyRecipes.ViewModels
 {
@@ -42,13 +43,11 @@ namespace EasyRecipes.ViewModels
 
         private void NavigateToRecipesDetails(Recipe recipeToNavigateTo)
         {
-            var pageToNavigate = new RecipesDetailsView(recipeToNavigateTo);
+            var pageToNavigate = new RecipeDetailsView(recipeToNavigateTo);
+
             NavigationDispatcher.Instance.Navigation.PushAsync(pageToNavigate);
         }
 
-        public override Task Initialise()
-        {
-            throw new System.NotImplementedException();
-        }
+        
     }
 }

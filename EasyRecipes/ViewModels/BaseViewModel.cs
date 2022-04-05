@@ -16,7 +16,10 @@ namespace EasyRecipes.ViewModels
             }
         }
 
-        public abstract Task Initialise();
+        public BaseViewModel()
+        {
+
+        }
 
     }
 }

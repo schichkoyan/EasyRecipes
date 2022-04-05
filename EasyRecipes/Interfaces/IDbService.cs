@@ -7,7 +7,5 @@ namespace EasyRecipes.Interfaces
     public interface IDbService
     {
         List<Recipe> GetRecipesData();
-
-
     }
 }

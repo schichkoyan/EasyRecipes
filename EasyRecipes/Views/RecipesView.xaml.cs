@@ -1,38 +1,29 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
-using Xamarin.Forms;
 using EasyRecipes.ViewModels;
-using System.Diagnostics;
+
+using Xamarin.Forms;
 
 namespace EasyRecipes.Views
 {
-
     public partial class RecipesView : ContentPage
     {
         public RecipesView()
         {
-            
             InitializeComponent();
+
             BindingContext = IocProvider.ServiceProvider.GetService<RecipesViewModel>();
-            SubscribeToEvents();
-
-        }
-        private void SubscribeToEvents()
-        {
-            Appearing += RecipesView_Appearing;
         }
 
-        private async void RecipesView_Appearing(object sender, EventArgs e)
+        private void LstProducts_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            try
-            {
-                await (BindingContext as RecipesViewModel).Initialise();
-            }
-            catch (Exception error)
-            {
-                Debug.Fail(error.Message); //handle gracefully here
-            }
+            var viewmodel = BindingContext as RecipesViewModel;
+            viewmodel.GoToRecipeDetailsCommand.Execute(e.SelectedItem);
         }
     }
 }
-

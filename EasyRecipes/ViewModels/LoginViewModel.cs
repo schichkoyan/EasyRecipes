@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using System.Windows.Input;
-using Microsoft.AppCenter.Analytics;
-using Microsoft.AppCenter.Crashes;
-using EasyRecipes.Interfaces;
-using EasyRecipes.Models;
 
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -127,13 +120,6 @@ namespace EasyRecipes.ViewModels
             {
                 IsBusy = false;
             }
-        }
-
-
-
-        public override Task Initialise()
-        {
-            throw new NotImplementedException();
         }
     }
 }

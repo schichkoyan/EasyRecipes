@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
-using EasyRecipes.Models;
-using EasyRecipes.ViewModels;
+﻿using EasyRecipes.Models;
 
-namespace EasyRecipes
+
+
+namespace EasyRecipes.ViewModels
 {
     public class RecipeDetailsViewModel : BaseViewModel
     {
@@ -13,18 +13,13 @@ namespace EasyRecipes
             set
             {
                 _recipeToShow = value;
-                OnPropertyChanged(nameof(Recipe));
+                OnPropertyChanged(nameof(RecipeToShow));
             }
         }
 
         public RecipeDetailsViewModel()
         {
 
-        }
-
-        public override Task Initialise()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

@@ -52,8 +52,8 @@
     <EmbeddedResource Remove="Views\AddRecipe.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Views\RecipesView.xaml.cs">
-      <DependentUpon>RecipesView.xaml</DependentUpon>
+    <Compile Update="Views\RecipeDetailsView.cs">
+      <DependentUpon>RecipeDetailsView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 </Project>

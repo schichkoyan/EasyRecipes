@@ -1,6 +1,4 @@
-﻿
-
-namespace EasyRecipes.Models
+﻿namespace EasyRecipes.Models
 {
     public class Recipe
     {
