@@ -15,7 +15,7 @@ namespace EasyRecipes.ViewModels
 
         public Command GoToRecipeDetailsCommand { get; set; }
 
-        private IDbService _recipeService;
+        private readonly IDbService _recipeService;
 
 
 
@@ -45,7 +45,7 @@ namespace EasyRecipes.ViewModels
         {
             var pageToNavigate = new RecipeDetailsView(recipeToNavigateTo);
 
-            NavigationDispatcher.Instance.Navigation.PushAsync(pageToNavigate);
+            NavigationDispatcher.Instance.Navigation.PushModalAsync(pageToNavigate);
         }
 
         

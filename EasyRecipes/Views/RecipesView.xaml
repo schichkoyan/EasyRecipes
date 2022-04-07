@@ -1,29 +1,67 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodels="clr-namespace:EasyRecipes.ViewModels"
+             xmlns:vm="clr-namespace:EasyRecipes.ViewModels"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="EasyRecipes.Views.RecipesView">
+    <Grid Margin="20,0,0,0">
+           <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+           </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-    <StackLayout HorizontalOptions="Center" VerticalOptions="FillAndExpand" Padding="10">
+        <Grid Grid.Row="0">
+           <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+           </Grid.RowDefinitions>
+           <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+           </Grid.ColumnDefinitions>
 
-<ListView x:Name="lstProducts" HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand"
-        SeparatorColor="LightGray" SeparatorVisibility="Default" HasUnevenRows="True"
-        ItemsSource="{Binding ObProducts}" CachingStrategy="RecycleElement"
-        ItemSelected="LstProducts_ItemSelected" SelectedItem="{Binding SelectedProduct,Mode=TwoWay}">
-<ListView.ItemTemplate>
-        <DataTemplate>
-            <ViewCell>
-            <StackLayout Orientation="Horizontal" Padding="5" VerticalOptions="FillAndExpand"
-                    MinimumHeightRequest="100">
-                        <Image Source="{Binding Image}" WidthRequest="70" HeightRequest="70"></Image>
-                        <StackLayout Orientation="Vertical" Padding="2" VerticalOptions="Center" Spacing="2">
-                                <Label Text="{Binding Name}" FontSize="18" TextColor="Black" FontAttributes="Bold"/>
+            <Label Text="Welcome" Grid.Row="0" Grid.Column="0" TextColor="Silver"/>
+            <Label Text="{Binding Username}" Grid.Row="1" Grid.Column="0" TextColor="Silver"/>
+            <Label Text="Easy Recipes" Grid.Row="0" Grid.Column="1" TextColor="Silver"/>
 
-                        </StackLayout>
-             </StackLayout>
-            </ViewCell>
-          </DataTemplate>
-    </ListView.ItemTemplate>
-  </ListView>
- </StackLayout>
+
+        </Grid>
+
+
+        <Grid Grid.Row="1">
+           <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+           </Grid.ColumnDefinitions>
+
+
+
+        </Grid>
+
+
+            <ListView x:Name="lstProducts" Margin="0,20,10,0" HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand"
+                    SeparatorColor="LightGray" SeparatorVisibility="Default" HasUnevenRows="True"
+                    ItemsSource="{Binding ObProducts}" CachingStrategy="RecycleElement"
+                    ItemSelected="LstProducts_ItemSelected" SelectedItem="{Binding SelectedProduct, Mode = TwoWay}">
+            <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="5" VerticalOptions="FillAndExpand"
+                                    MinimumHeightRequest="100">
+                              <Image Source="{Binding Image}" WidthRequest="70" HeightRequest="70"></Image>
+                              <StackLayout Orientation="Vertical" Padding="2" VerticalOptions="Center" Spacing="2">
+                                    <Label Text="{Binding Name}" FontSize="18" TextColor="Black" FontAttributes="Bold"/>
+                            </StackLayout>
+                         </StackLayout>
+                        </ViewCell>
+                      </DataTemplate>
+                </ListView.ItemTemplate>
+              </ListView>
+        </Grid>
 </ContentPage>
+
+

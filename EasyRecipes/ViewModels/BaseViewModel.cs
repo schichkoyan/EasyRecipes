@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 
 namespace EasyRecipes.ViewModels
 {
-    public abstract class BaseViewModel
+    public class BaseViewModel : INotifyPropertyChanged
     {
-        protected event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {

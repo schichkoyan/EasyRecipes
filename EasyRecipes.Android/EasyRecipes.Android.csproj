@@ -85,6 +85,9 @@
     <PackageReference Include="NUnit3TestAdapter">
       <Version>4.2.1</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.Forms.PancakeView">
+      <Version>2.3.0.759</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />

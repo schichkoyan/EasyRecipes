@@ -1,4 +1,5 @@
-﻿using EasyRecipes.Models;
+﻿using System;
+using EasyRecipes.Models;
 
 
 
@@ -7,7 +8,9 @@ namespace EasyRecipes.ViewModels
     public class RecipeDetailsViewModel : BaseViewModel
     {
         private Recipe _recipeToShow;
+
         public Recipe RecipeToShow {
+
             get => _recipeToShow;
 
             set
