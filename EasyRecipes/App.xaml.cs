@@ -14,7 +14,7 @@ namespace EasyRecipes
             InitializeComponent();
 
             IocProvider.Init();
-            MainPage = new NavigationPage (new RecipesView());
+            MainPage = new NavigationPage (new LoginView());
             NavigationDispatcher.Instance.Initialize(MainPage.Navigation);
         }
 

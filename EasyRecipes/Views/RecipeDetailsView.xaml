@@ -6,8 +6,11 @@
     x:Class="EasyRecipes.Views.RecipeDetailsView">
 
     <ContentPage.BindingContext>
+
         <vm:RecipeDetailsViewModel/>
+
     </ContentPage.BindingContext>
+
     <Grid Padding="5" VerticalOptions="Center">
            <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
