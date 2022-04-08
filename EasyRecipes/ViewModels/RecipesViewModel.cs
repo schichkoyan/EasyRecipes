@@ -45,7 +45,7 @@ namespace EasyRecipes.ViewModels
         {
             var pageToNavigate = new RecipeDetailsView(recipeToNavigateTo);
 
-            NavigationDispatcher.Instance.Navigation.PushModalAsync(pageToNavigate);
+            NavigationDispatcher.Instance.Navigation.PushAsync(pageToNavigate);
         }
 
         

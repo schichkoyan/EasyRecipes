@@ -103,7 +103,7 @@ namespace EasyRecipes.ViewModels
                 if (Result)
                 {
                     Preferences.Set("Username", Username);
-                    await Application.Current.MainPage.Navigation.PushModalAsync(new RecipesView());
+                    await Application.Current.MainPage.Navigation.PushAsync(new RecipesView());
                 }
                 else
                 {

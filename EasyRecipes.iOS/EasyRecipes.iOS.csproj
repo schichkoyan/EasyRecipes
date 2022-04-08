@@ -166,4 +166,11 @@
       <Name>EasyRecipes</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo_info.txt" />
+    <BundleResource Include="Resources\Easy Recipes-logos_transparent.png" />
+    <BundleResource Include="Resources\Easy Recipes-logos_black.png" />
+    <BundleResource Include="Resources\Easy Recipes-logos_white.png" />
+    <BundleResource Include="Resources\Easy Recipes-logos.jpeg" />
+  </ItemGroup>
 </Project>
