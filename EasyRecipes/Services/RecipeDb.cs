@@ -54,7 +54,7 @@ namespace EasyRecipes.Services
             {
                 Image = "https://www.justonecookbook.com/wp-content/uploads/2020/01/Sushi-Rolls-Maki-Sushi-–-Hosomaki-1106-II.jpg",
                 Name = "Sushi Rice and Maki",
-                Description = "https://www.bbcgoodfood.com/recipes/ultimate-spaghetti-carbonara-recipe",
+                Description = "",
                 URL = "https://www.youtube.com/watch?v=EGeNKGosXA8&t=186s"
             });
 

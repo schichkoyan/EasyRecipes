@@ -35,7 +35,21 @@
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
                 
                     </StackLayout>
+
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                        <Label>
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span>
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding TapCommand}" CommandParameter="{Binding RecipeToShow.Description}"/>
+                                        </Span.GestureRecognizers>
+                                    </Span>      
+                                   
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
                         <Label x:Name="lblDescription" Text="{Binding RecipeToShow.Description}" TextColor="#3483eb"/>
                
                     </StackLayout>
@@ -48,9 +62,9 @@
 
        </StackLayout>
 
-        <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="Start">
+        <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="Center">
 
-                    <WebView Source="{Binding RecipeToShow.URL}" WidthRequest="200" HeightRequest="200"/>
+                    <WebView Source="{Binding RecipeToShow.URL}" WidthRequest="900" HeightRequest="500"/>
             
                
         </StackLayout>
