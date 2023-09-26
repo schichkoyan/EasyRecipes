@@ -3,7 +3,7 @@
 <img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/ec559a9f6bfd399b82bb44393651661b08aaf7ba/icons/folder-markdown-open.svg" width="100" />
 <br>EasyRecipes
 </h1>
-<h3>◦ HTTPStatus Exception: 429</h3>
+<h3></h3>
 <h3>◦ Developed with the software and tools below.</h3>
 
 <p align="center">
@@ -38,13 +38,14 @@
 
 ## 📍 Overview
 
-HTTPStatus Exception: 429
+This is a prototype for a recipe app.
 
 ---
 
 ## 📦 Features
 
-HTTPStatus Exception: 429
+◦ Identification using credentials.
+◦ Shows some recipes for the client and allows them to access them.
 
 ---
 
