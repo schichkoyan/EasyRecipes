@@ -44,8 +44,8 @@ This is a prototype for a recipe app.
 
 ## 📦 Features
 
-◦ Identification using credentials.
-◦ Shows some recipes for the client and allows them to access them.
+<h4>◦ Identification using credentials.</h4>
+<h4>◦ Shows some recipes for the client and allows them to access them.</h4>
 
 ---
 
