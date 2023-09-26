@@ -7,8 +7,8 @@
 <h3>◦ Developed with the software and tools below.</h3>
 
 <p align="center">
-<img src="https://img.shields.io/badge/XAML-0C54C2.svg?style&logo=XAML&logoColor=white" alt="XAML" />
-<img src="https://img.shields.io/badge/JSON-000000.svg?style&logo=JSON&logoColor=white" alt="JSON" />
+<img src="https://img.shields.io/badge/-.NET%206.0-blueviolet" alt=".NET" />
+<img src="https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white)" alt="C#" />
 </p>
 <img src="https://img.shields.io/github/languages/top/schichkoyan/EasyRecipes?style&color=5D6D7E" alt="GitHub top language" />
 <img src="https://img.shields.io/github/languages/code-size/schichkoyan/EasyRecipes?style&color=5D6D7E" alt="GitHub code size in bytes" />
